@@ -1,6 +1,6 @@
 # ⚡ Dashboard Agentico
 
-> Panel de control interactivo para el análisis de proyectos energéticos y mineros en Colombia.
+> Panel de control interactivo para crear soluciones agenticas con un set de datos.
 
 <p align="center">
   <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white" alt="Streamlit">
