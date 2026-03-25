@@ -59,7 +59,15 @@ if uploaded_file is not None:
     try:
         # Cargar los datos segun la extension
         if uploaded_file.name.endswith('.csv'):
-            df = pd.read_csv(uploaded_file)
+            try:
+                df = pd.read_csv(uploaded_file, encoding='utf-8')
+            except UnicodeDecodeError:
+                uploaded_file.seek(0)
+                try:
+                    df = pd.read_csv(uploaded_file, encoding='latin-1')
+                except UnicodeDecodeError:
+                    uploaded_file.seek(0)
+                    df = pd.read_csv(uploaded_file, encoding='cp1252')
         elif uploaded_file.name.endswith('.json'):
             df = pd.read_json(uploaded_file)
         elif uploaded_file.name.endswith('.xlsx'):
